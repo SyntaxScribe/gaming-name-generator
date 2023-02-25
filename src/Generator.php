@@ -56,6 +56,9 @@ class Generator
 
     private function getRandomWord($words, $usedWords)
     {
+        if (!is_array($words)) {
+            return false;
+        }
         $count = count($words);
         $index = mt_rand(0, $count - 1);
         for ($i = 0; $i < $count; $i++) {

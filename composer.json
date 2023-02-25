@@ -1,0 +1,23 @@
+{
+    "name": "syntaxscribe/gaming-name-generator",
+    "description": "A PHP package for generating unique and meaningful gaming names using a combination of adjectives and nouns.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SyntaxScribe\\GamingNameGenerator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SyntaxScribe"
+        },
+        {
+            "name": "Behzad Soltanpour"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">= 7.4"
+    }
+}

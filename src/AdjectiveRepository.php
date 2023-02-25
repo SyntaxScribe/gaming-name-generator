@@ -13,6 +13,11 @@ class AdjectiveRepository
 
     public function getRandomAdjective()
     {
-        return $this->adjectives[array_rand($this->adjectives)];
+        $adjectives = $this->adjectives;
+        if (is_array($adjectives)) {
+            return [$adjectives[array_rand($adjectives)]];
+        } else {
+            return [$adjectives];
+        }
     }
 }

@@ -13,6 +13,11 @@ class NounRepository
 
     public function getRandomNoun()
     {
-        return $this->nouns[array_rand($this->nouns)];
+        $nouns = $this->nouns;
+        if (is_array($nouns)) {
+            return [$nouns[array_rand($nouns)]];
+        } else {
+            return [$nouns];
+        }
     }
 }

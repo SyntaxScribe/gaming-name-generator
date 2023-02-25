@@ -29,7 +29,16 @@ class Generator
 
     public function generateName()
     {
+        $adjCount = count($this->adjectiveRepo->getRandomAdjective());
+        $nounCount = count($this->nounRepo->getRandomNoun());
+        $maxCombos = $adjCount * $nounCount;
+
+        $count = 0;
         do {
+            $count++;
+            if ($count > $maxCombos) {
+                return false;
+            }
             $adj = $this->getRandomWord($this->adjectiveRepo->getRandomAdjective(), $this->usedAdjectives);
         } while ($adj === false);
         do {
@@ -56,17 +65,13 @@ class Generator
 
     private function getRandomWord($words, $usedWords)
     {
-        if (!is_array($words)) {
+        $availableWords = array_diff($words, array_keys($usedWords));
+
+        if (count($availableWords) == 0) {
             return false;
         }
-        $count = count($words);
-        $index = mt_rand(0, $count - 1);
-        for ($i = 0; $i < $count; $i++) {
-            $word = $words[($index + $i) % $count];
-            if (!isset($usedWords[$word])) {
-                return $word;
-            }
-        }
-        return false;
+
+        $index = mt_rand(0, count($availableWords) - 1);
+        return $availableWords[$index];
     }
 }

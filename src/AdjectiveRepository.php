@@ -1,12 +1,12 @@
 <?php
 
-namespace MonoVM\GamingNameGenerator;
+namespace SyntaxScribe\GamingNameGenerator;
 
 class AdjectiveRepository
 {
     private $adjectives;
 
-    public function __construct($filename)
+    public function __construct($filename = 'adjectives.txt')
     {
         $this->adjectives = file($filename, FILE_IGNORE_NEW_LINES);
     }

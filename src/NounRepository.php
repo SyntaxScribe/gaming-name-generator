@@ -1,12 +1,12 @@
 <?php
 
-namespace MonoVM\GamingNameGenerator;
+namespace SyntaxScribe\GamingNameGenerator;
 
 class NounRepository
 {
     private $nouns;
 
-    public function __construct($filename)
+    public function __construct($filename = 'nouns.txt')
     {
         $this->nouns = file($filename, FILE_IGNORE_NEW_LINES);
     }

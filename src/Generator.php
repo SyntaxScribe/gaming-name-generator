@@ -1,6 +1,6 @@
 <?php
 
-namespace MonoVM\GamingNameGenerator;
+namespace SyntaxScribe\GamingNameGenerator;
 
 class Generator
 {
@@ -19,8 +19,10 @@ class Generator
         $this->useSuffix = $useSuffix;
     }
 
-    public static function generate(AdjectiveRepository $adjectiveRepo, NounRepository $nounRepo, $usePrefix = false, $useSuffix = false)
+    public static function generate($usePrefix = false, $useSuffix = false)
     {
+        $adjectiveRepo = new AdjectiveRepository();
+        $nounRepo = new NounRepository();
         $generator = new self($adjectiveRepo, $nounRepo, $usePrefix, $useSuffix);
         return $generator->generateName();
     }
